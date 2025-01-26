@@ -9,8 +9,8 @@ A lightweight and extensible library for validating Romanian CNP (Cod Numeric Pe
     - Valid date
     - Valid county code
     - Correct control digit
-- Supports custom error messages via translations.
-- Modular and extensible design using factories and PSR-4 standards.
+- Supports custom error messages.
+- Modular and extensible design using PSR-4 and OOP standards.
 - Unit tested with PHPUnit.
 
 ## Installation
