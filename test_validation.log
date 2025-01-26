@@ -1,0 +1,66 @@
+[2025-01-26 20:29:01] Validation succeeded for CNP: 2860221130327
+[2025-01-26 20:29:01] ControlDigitRule failed: Control digit mismatch in '1960917400019'.
+[2025-01-26 20:29:01] Validation failed: Control digit in CNP is invalid.
+[2025-01-26 20:29:01] LengthRule failed: '12345' does not have exactly 13 characters.
+[2025-01-26 20:29:01] Validation failed: CNP must have exactly 13 characters.
+[2025-01-26 20:31:22] Validation succeeded for CNP: 2860221130327
+[2025-01-26 20:31:22] ControlDigitValidator failed: Control digit mismatch in '1960917400019'.
+[2025-01-26 20:31:22] Validation failed: Control digit in CNP is invalid.
+[2025-01-26 20:31:22] LengthValidator failed: '12345' does not have exactly 13 characters.
+[2025-01-26 20:31:22] Validation failed: CNP must have exactly 13 characters.
+[2025-01-26 20:34:34] Validation succeeded for CNP: 2860221130327
+[2025-01-26 20:34:34] ControlDigitValidator failed: Control digit mismatch in '1960917400019'.
+[2025-01-26 20:34:34] Validation failed: Control digit in CNP is invalid.
+[2025-01-26 20:34:34] LengthValidator failed: '12345' does not have exactly 13 characters.
+[2025-01-26 20:34:34] Validation failed: CNP must have exactly 13 characters.
+[2025-01-26 20:34:34] NumericValidator failed: '12345A7890123' contains non-numeric characters.
+[2025-01-26 20:34:34] Validation failed: CNP must contain only numeric characters.
+[2025-01-26 20:34:34] DateValidator failed: Date components from '1961327400018' are invalid.
+[2025-01-26 20:34:34] Validation failed: Date components in CNP are invalid.
+[2025-01-26 20:34:34] CountyValidator failed: County code '99' from '1960917990018' is invalid.
+[2025-01-26 20:34:34] Validation failed: County code in CNP is invalid.
+[2025-01-26 20:36:07] Validation succeeded for CNP: 2860221130327
+[2025-01-26 20:36:07] ControlDigitValidator failed: Control digit mismatch in '1960917400019'.
+[2025-01-26 20:36:07] Validation failed: Control digit in CNP is invalid.
+[2025-01-26 20:36:07] LengthValidator failed: '12345' does not have exactly 13 characters.
+[2025-01-26 20:36:07] Validation failed: CNP must have exactly 13 characters.
+[2025-01-26 20:36:07] NumericValidator failed: '12345A7890123' contains non-numeric characters.
+[2025-01-26 20:36:07] Validation failed: CNP must contain only numeric characters.
+[2025-01-26 20:36:07] DateValidator failed: Date components from '1961327400018' are invalid.
+[2025-01-26 20:36:07] Validation failed: Date components in CNP are invalid.
+[2025-01-26 20:36:07] CountyValidator failed: County code '99' from '1960917990018' is invalid.
+[2025-01-26 20:36:07] Validation failed: County code in CNP is invalid.
+[2025-01-26 20:37:26] ControlDigitValidator failed: Control digit mismatch in '2860221130328'.
+[2025-01-26 20:37:26] Validation failed: Control digit in CNP is invalid.
+[2025-01-26 20:37:26] ControlDigitValidator failed: Control digit mismatch in '1960917400019'.
+[2025-01-26 20:37:26] Validation failed: Control digit in CNP is invalid.
+[2025-01-26 20:37:26] LengthValidator failed: '12345' does not have exactly 13 characters.
+[2025-01-26 20:37:26] Validation failed: CNP must have exactly 13 characters.
+[2025-01-26 20:37:26] NumericValidator failed: '12345A7890123' contains non-numeric characters.
+[2025-01-26 20:37:26] Validation failed: CNP must contain only numeric characters.
+[2025-01-26 20:37:26] DateValidator failed: Date components from '1961327400018' are invalid.
+[2025-01-26 20:37:26] Validation failed: Date components in CNP are invalid.
+[2025-01-26 20:37:26] CountyValidator failed: County code '99' from '1960917990018' is invalid.
+[2025-01-26 20:37:26] Validation failed: County code in CNP is invalid.
+[2025-01-26 20:37:50] Validation succeeded for CNP: 2860221130327
+[2025-01-26 20:37:50] ControlDigitValidator failed: Control digit mismatch in '1960917400019'.
+[2025-01-26 20:37:50] Validation failed: Control digit in CNP is invalid.
+[2025-01-26 20:37:50] LengthValidator failed: '12345' does not have exactly 13 characters.
+[2025-01-26 20:37:50] Validation failed: CNP must have exactly 13 characters.
+[2025-01-26 20:37:50] NumericValidator failed: '12345A7890123' contains non-numeric characters.
+[2025-01-26 20:37:50] Validation failed: CNP must contain only numeric characters.
+[2025-01-26 20:37:50] DateValidator failed: Date components from '1961327400018' are invalid.
+[2025-01-26 20:37:50] Validation failed: Date components in CNP are invalid.
+[2025-01-26 20:37:50] CountyValidator failed: County code '99' from '1960917990018' is invalid.
+[2025-01-26 20:37:50] Validation failed: County code in CNP is invalid.
+[2025-01-26 20:41:53] Validation succeeded for CNP: 2860221130327
+[2025-01-26 20:41:53] ControlDigitValidator failed: Control digit mismatch in '1960917400019'.
+[2025-01-26 20:41:53] Validation failed: Control digit in CNP is invalid.
+[2025-01-26 20:41:53] LengthValidator failed: '12345' does not have exactly 13 characters.
+[2025-01-26 20:41:53] Validation failed: CNP must have exactly 13 characters.
+[2025-01-26 20:41:53] NumericValidator failed: '12345A7890123' contains non-numeric characters.
+[2025-01-26 20:41:53] Validation failed: CNP must contain only numeric characters.
+[2025-01-26 20:41:53] DateValidator failed: Date components from '1961327400018' are invalid.
+[2025-01-26 20:41:53] Validation failed: Date components in CNP are invalid.
+[2025-01-26 20:41:53] CountyValidator failed: County code '99' from '1960917990018' is invalid.
+[2025-01-26 20:41:53] Validation failed: County code in CNP is invalid.
