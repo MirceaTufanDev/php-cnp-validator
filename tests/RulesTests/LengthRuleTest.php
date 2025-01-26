@@ -21,6 +21,6 @@ class LengthRuleTest extends TestCase
         $this->expectExceptionMessage('CNP must have exactly 13 characters.');
 
         $rule = new LengthValidator('en');
-        $rule->validate('12345678'); // Lungime invalidă
+        $rule->validate('12345678');
     }
 }

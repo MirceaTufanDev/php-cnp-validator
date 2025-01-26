@@ -12,7 +12,7 @@ class DateRuleTest extends TestCase
     public function testValidDate(): void
     {
         $rule = new DateValidator();
-        $this->assertTrue($rule->validate('1960917400018')); // Data validă
+        $this->assertTrue($rule->validate('1960917400018'));
     }
 
     public function testInvalidDate(): void
@@ -21,6 +21,6 @@ class DateRuleTest extends TestCase
         $this->expectExceptionMessage('Date components in CNP are invalid.');
 
         $rule = new DateValidator('en');
-        $rule->validate('1961327400018'); // Lună invalidă (32)
+        $rule->validate('1961327400018');
     }
 }
