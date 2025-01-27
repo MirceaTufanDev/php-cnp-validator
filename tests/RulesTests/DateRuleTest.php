@@ -14,6 +14,6 @@ class DateRuleTest extends BaseTestCase
         );
 
         $rule = new DateValidator($this->mockLogger);
-        $rule->validate('5999999999999'); // Example with invalid date
+        $rule->validate('5999999999999');
     }
 }

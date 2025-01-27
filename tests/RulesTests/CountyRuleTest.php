@@ -16,6 +16,6 @@ class CountyRuleTest extends BaseTestCase
         );
 
         $rule = new CountyValidator($this->mockLogger);
-        $rule->validate('1234567899999'); // Example with invalid county code
+        $rule->validate('1234567899999');
     }
 }

@@ -8,3 +8,5 @@
 [2025-01-27 08:43:21] ERROR: ControlDigitValidator failed: Control digit mismatch. Expected '0', got '3' in CNP '1980618394433'. | Context: {"validator":"Phpvalidator\\Validator\\Rules\\ControlDigitValidator"}
 [2025-01-27 08:43:37] ERROR: ControlDigitValidator failed: Control digit mismatch. Expected '0', got '2' in CNP '1980618394432'. | Context: {"validator":"Phpvalidator\\Validator\\Rules\\ControlDigitValidator"}
 [2025-01-27 08:43:53] ERROR: ControlDigitValidator failed: Control digit mismatch. Expected '0', got '2' in CNP '1980618394432'. | Context: {"validator":"Phpvalidator\\Validator\\Rules\\ControlDigitValidator"}
+[2025-01-27 09:57:08] ERROR: ControlDigitValidator failed: Control digit mismatch. Expected '2', got '3' in CNP '1970618394433'. | Context: {"validator":"Phpvalidator\\Validator\\Rules\\ControlDigitValidator"}
+[2025-01-27 09:57:33] ERROR: ControlDigitValidator failed: Control digit mismatch. Expected '7', got '2' in CNP '9970618394432'. | Context: {"validator":"Phpvalidator\\Validator\\Rules\\ControlDigitValidator"}

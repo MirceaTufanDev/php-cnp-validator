@@ -16,12 +16,15 @@ class CnpValidator
     /**
      *
      * @param string $value
-     * @throws CustomValidationExeption
      */
     public function isCnpValid(string $value): bool
     {
         foreach ($this->validations as $validation) {
-            $validation->validate($value);
+            try {
+                $validation->validate($value);
+            } catch (CustomValidationExeption $e) {
+                return false;
+            }
         }
 
         return true;
