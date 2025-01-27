@@ -2,24 +2,12 @@
 
 namespace Phpvalidator\Validator\Rules;
 
-use Phpvalidator\Exceptions\ErrorMessages;
-use Phpvalidator\Validator\Interfaces\RuleInterface;
 use Phpvalidator\Exceptions\CustomValidationExeption;
-use Phpvalidator\Logger\Logger;
+use Phpvalidator\Exceptions\ErrorMessages;
 
-class DateValidator implements RuleInterface
+class DateValidator extends AbstractRule
 {
-    private string $lang;
-
-    public function __construct(string $lang = 'en')
-    {
-        $this->lang = $lang;
-    }
-
-    /**
-     * @throws CustomValidationExeption
-     */
-    public function validate(string $value, ?Logger $logger = null): bool
+    public function validate(string $value): void
     {
         $yearCode = (int)substr($value, 0, 1);
         $year = (int)substr($value, 1, 2);
@@ -34,11 +22,14 @@ class DateValidator implements RuleInterface
         };
 
         if ($century === null || !checkdate($month, $day, $century + $year)) {
-            if ($logger) {
-                $logger->log("DateValidator failed: Date components from '$value' are invalid.");
-            }
+            $this->logError("DateValidator failed: Invalid date components in CNP.", [
+                'value' => $value,
+                'yearCode' => $yearCode,
+                'year' => $year,
+                'month' => $month,
+                'day' => $day,
+            ]);
             throw new CustomValidationExeption(ErrorMessages::DATE_ERROR);
         }
-        return true;
     }
 }

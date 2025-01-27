@@ -2,15 +2,12 @@
 
 namespace Phpvalidator\Validator\Rules;
 
-use Phpvalidator\Exceptions\ErrorMessages;
-use Phpvalidator\Validator\Interfaces\RuleInterface;
 use Phpvalidator\Exceptions\CustomValidationExeption;
-use Phpvalidator\Translations\Translations;
-use Phpvalidator\Logger\Logger;
+use Phpvalidator\Exceptions\ErrorMessages;
 
-class CountyValidator implements RuleInterface
+class CountyValidator extends AbstractRule
 {
-    private array $validCounties = [
+    private const VALID_COUNTIES = [
         '01', '02', '03', '04', '05', '06', '07', '08', '09', '10',
         '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
         '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
@@ -18,25 +15,15 @@ class CountyValidator implements RuleInterface
         '41', '42', '43', '44', '45', '46', '51', '52',
     ];
 
-    private string $lang;
-
-    public function __construct(string $lang = 'en')
-    {
-        $this->lang = $lang;
-    }
-
-    /**
-     * @throws CustomValidationExeption
-     */
-    public function validate(string $value, ?Logger $logger = null): bool
+    public function validate(string $value): void
     {
         $countyCode = substr($value, 7, 2);
-        if (!in_array($countyCode, $this->validCounties, true)) {
-            if ($logger) {
-                $logger->log("CountyValidator failed: County code '$countyCode' from '$value' is invalid.");
-            }
+        if (!in_array($countyCode, self::VALID_COUNTIES, true)) {
+            $this->logError(
+                "CountyValidator failed: Invalid county code in CNP.",
+                ['value' => $value, 'countyCode' => $countyCode]
+            );
             throw new CustomValidationExeption(ErrorMessages::COUNTY_ERROR);
         }
-        return true;
     }
 }

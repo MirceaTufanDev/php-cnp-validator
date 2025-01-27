@@ -1,0 +1,3 @@
+[2025-01-27 08:14:57] ERROR: ControlDigitValidator failed: Control digit mismatch. | Context: {"value":"1980618394432","expected":0,"actual":"2"}
+[2025-01-27 08:19:48] ERROR: ControlDigitValidator failed: Control digit mismatch. | Context: {"value":"1980618394432","expected":0,"actual":"2"}
+[2025-01-27 08:23:41] ERROR: ControlDigitValidator failed: Control digit mismatch. | Context: {"value":"1980618394432","expected":0,"actual":"2"}

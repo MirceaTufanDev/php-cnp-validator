@@ -2,32 +2,16 @@
 
 namespace Phpvalidator\Validator\Rules;
 
-use Phpvalidator\Exceptions\ErrorMessages;
-use Phpvalidator\Validator\Interfaces\RuleInterface;
 use Phpvalidator\Exceptions\CustomValidationExeption;
-use Phpvalidator\Translations\Translations;
-use Phpvalidator\Logger\Logger;
+use Phpvalidator\Exceptions\ErrorMessages;
 
-class LengthValidator implements RuleInterface
+class LengthValidator extends AbstractRule
 {
-    private string $lang;
-
-    public function __construct(string $lang = 'en')
-    {
-        $this->lang = $lang;
-    }
-
-    /**
-     * @throws CustomValidationExeption
-     */
-    public function validate(string $value, ?Logger $logger = null): bool
+    public function validate(string $value): void
     {
         if (strlen($value) !== 13) {
-            if ($logger) {
-                $logger->log("LengthValidator failed: '$value' does not have exactly 13 characters.");
-            }
+            $this->logError("LengthValidator failed: CNP does not have exactly 13 characters.", ['value' => $value]);
             throw new CustomValidationExeption(ErrorMessages::LENGTH_ERROR);
         }
-        return true;
     }
 }

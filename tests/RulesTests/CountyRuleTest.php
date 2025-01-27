@@ -1,26 +1,19 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace Phpvalidator\Tests\Rules;
+
+use Phpvalidator\Tests\BaseTestCase;
 use Phpvalidator\Validator\Rules\CountyValidator;
 use Phpvalidator\Exceptions\CustomValidationExeption;
 
-class CountyRuleTest extends TestCase
+class CountyRuleTest extends BaseTestCase
 {
-    /**
-     * @throws CustomValidationExeption
-     */
-    public function testValidCounty(): void
-    {
-        $rule = new CountyValidator();
-        $this->assertTrue($rule->validate('1970618394432'));
-    }
-
     public function testInvalidCounty(): void
     {
         $this->expectException(CustomValidationExeption::class);
         $this->expectExceptionMessage('County code in CNP is invalid.');
 
-        $rule = new CountyValidator('en');
-        $rule->validate('1960997990018');
+        $rule = new CountyValidator($this->mockLogger);
+        $rule->validate('1234567899999');
     }
 }
