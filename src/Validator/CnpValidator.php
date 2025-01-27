@@ -14,7 +14,6 @@ class CnpValidator
     }
 
     /**
-     * Validates a CNP by applying all validation rules.
      *
      * @param string $value
      * @throws CustomValidationExeption

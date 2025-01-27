@@ -2,24 +2,25 @@
 
 namespace Phpvalidator\Validator\Rules;
 
-use Phpvalidator\Exceptions\CustomValidationExeption;
-use Phpvalidator\Exceptions\ErrorMessages;
-
-class ControlDigitValidator extends AbstractRule
+class ControlDigitValidator extends AbstractValidator
 {
     private const WEIGHTS = [2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9];
 
-    public function validate(string $value): void
+    protected function isValid(string $value): bool
     {
         $controlDigit = $this->calculateControlDigit($value);
+        return (int)$value[12] === $controlDigit;
+    }
 
-        if (!$this->isControlDigitValid($value, $controlDigit)) {
-            $this->logError(
-                "ControlDigitValidator failed: Control digit mismatch.",
-                ['value' => $value, 'expected' => $controlDigit, 'actual' => $value[12]]
-            );
-            throw new CustomValidationExeption(ErrorMessages::CONTROL_DIGIT_ERROR);
-        }
+    protected function getErrorMessage(string $value): string
+    {
+        $controlDigit = $this->calculateControlDigit($value);
+        return sprintf(
+            "ControlDigitValidator failed: Control digit mismatch. Expected '%d', got '%s' in CNP '%s'.",
+            $controlDigit,
+            $value[12],
+            $value
+        );
     }
 
     private function calculateControlDigit(string $value): int
@@ -33,10 +34,5 @@ class ControlDigitValidator extends AbstractRule
         $controlDigit = $controlSum % 11;
 
         return $controlDigit === 10 ? 1 : $controlDigit;
-    }
-
-    private function isControlDigitValid(string $value, int $controlDigit): bool
-    {
-        return (int)$value[12] === $controlDigit;
     }
 }

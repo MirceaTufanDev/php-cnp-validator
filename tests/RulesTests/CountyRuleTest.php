@@ -11,9 +11,11 @@ class CountyRuleTest extends BaseTestCase
     public function testInvalidCounty(): void
     {
         $this->expectException(CustomValidationExeption::class);
-        $this->expectExceptionMessage('County code in CNP is invalid.');
+        $this->expectExceptionMessage(
+            "CountyValidator failed: Invalid county code '89' in CNP '1234567899999'."
+        );
 
         $rule = new CountyValidator($this->mockLogger);
-        $rule->validate('1234567899999');
+        $rule->validate('1234567899999'); // Example with invalid county code
     }
 }

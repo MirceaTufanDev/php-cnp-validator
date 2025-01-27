@@ -2,16 +2,15 @@
 
 namespace Phpvalidator\Validator\Rules;
 
-use Phpvalidator\Exceptions\CustomValidationExeption;
-use Phpvalidator\Exceptions\ErrorMessages;
-
-class NumericValidator extends AbstractRule
+class NumericValidator extends AbstractValidator
 {
-    public function validate(string $value): void
+    protected function isValid(string $value): bool
     {
-        if (!ctype_digit($value)) {
-            $this->logError("NumericValidator failed: CNP contains non-numeric characters.", ['value' => $value]);
-            throw new CustomValidationExeption(ErrorMessages::NUMERIC_ERROR);
-        }
+        return ctype_digit($value);
+    }
+
+    protected function getErrorMessage(string $value): string
+    {
+        return sprintf("NumericValidator failed: CNP '%s' contains non-numeric characters.", $value);
     }
 }

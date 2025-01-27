@@ -11,7 +11,9 @@ class NumericRuleTest extends BaseTestCase
     public function testInvalidNumeric(): void
     {
         $this->expectException(CustomValidationExeption::class);
-        $this->expectExceptionMessage('CNP must contain only numeric characters.');
+        $this->expectExceptionMessage(
+            "NumericValidator failed: CNP '1234abc890123' contains non-numeric characters."
+        );
 
         $rule = new NumericValidator($this->mockLogger);
         $rule->validate('1234abc890123');

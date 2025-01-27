@@ -2,10 +2,7 @@
 
 namespace Phpvalidator\Validator\Rules;
 
-use Phpvalidator\Exceptions\CustomValidationExeption;
-use Phpvalidator\Exceptions\ErrorMessages;
-
-class CountyValidator extends AbstractRule
+class CountyValidator extends AbstractValidator
 {
     private const VALID_COUNTIES = [
         '01', '02', '03', '04', '05', '06', '07', '08', '09', '10',
@@ -15,15 +12,15 @@ class CountyValidator extends AbstractRule
         '41', '42', '43', '44', '45', '46', '51', '52',
     ];
 
-    public function validate(string $value): void
+    protected function isValid(string $value): bool
     {
         $countyCode = substr($value, 7, 2);
-        if (!in_array($countyCode, self::VALID_COUNTIES, true)) {
-            $this->logError(
-                "CountyValidator failed: Invalid county code in CNP.",
-                ['value' => $value, 'countyCode' => $countyCode]
-            );
-            throw new CustomValidationExeption(ErrorMessages::COUNTY_ERROR);
-        }
+        return in_array($countyCode, self::VALID_COUNTIES, true);
+    }
+
+    protected function getErrorMessage(string $value): string
+    {
+        $countyCode = substr($value, 7, 2);
+        return sprintf("CountyValidator failed: Invalid county code '%s' in CNP '%s'.", $countyCode, $value);
     }
 }

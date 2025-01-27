@@ -7,18 +7,11 @@ use Phpvalidator\Validator\Rules\NumericValidator;
 use Phpvalidator\Validator\Rules\DateValidator;
 use Phpvalidator\Validator\Rules\CountyValidator;
 use Phpvalidator\Validator\Rules\ControlDigitValidator;
-use Phpvalidator\Logger\LoggerInterface;
 use Phpvalidator\Exceptions\CustomValidationExeption;
+use Phpvalidator\Tests\BaseTestCase;
 
-class CnpValidatorTest extends TestCase
+class CnpValidatorTest extends BaseTestCase
 {
-    private LoggerInterface $mockLogger;
-
-    protected function setUp(): void
-    {
-        $this->mockLogger = $this->createMock(LoggerInterface::class);
-    }
-
     public function testValidCnp(): void
     {
         $rules = [
@@ -36,7 +29,7 @@ class CnpValidatorTest extends TestCase
     public function testCnpWithInvalidLength(): void
     {
         $this->expectException(CustomValidationExeption::class);
-        $this->expectExceptionMessage('CNP must have exactly 13 characters.');
+        $this->expectExceptionMessage("LengthValidator failed: CNP '123' must have exactly 13 characters.");
 
         $rules = [new LengthValidator($this->mockLogger)];
         $validator = new CnpValidator($rules);
@@ -46,7 +39,7 @@ class CnpValidatorTest extends TestCase
     public function testCnpWithNonNumericCharacters(): void
     {
         $this->expectException(CustomValidationExeption::class);
-        $this->expectExceptionMessage('CNP must contain only numeric characters.');
+        $this->expectExceptionMessage("NumericValidator failed: CNP '19812abc12357' contains non-numeric characters.");
 
         $rules = [new NumericValidator($this->mockLogger)];
         $validator = new CnpValidator($rules);
@@ -56,7 +49,7 @@ class CnpValidatorTest extends TestCase
     public function testCnpWithInvalidDate(): void
     {
         $this->expectException(CustomValidationExeption::class);
-        $this->expectExceptionMessage('Date components in CNP are invalid.');
+        $this->expectExceptionMessage("DateValidator failed: Invalid date components in CNP '1981331123457'.");
 
         $rules = [new DateValidator($this->mockLogger)];
         $validator = new CnpValidator($rules);
@@ -66,7 +59,7 @@ class CnpValidatorTest extends TestCase
     public function testCnpWithInvalidCountyCode(): void
     {
         $this->expectException(CustomValidationExeption::class);
-        $this->expectExceptionMessage('County code in CNP is invalid.');
+        $this->expectExceptionMessage("CountyValidator failed: Invalid county code '99' in CNP '1981213999999'.");
 
         $rules = [new CountyValidator($this->mockLogger)];
         $validator = new CnpValidator($rules);

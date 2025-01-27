@@ -29,7 +29,7 @@ $rules = [
 
 $validator = new CnpValidator($rules);
 
-$testCnp = '1980618394432';
+$testCnp = '1970618394432';
 echo "Validating CNP: $testCnp\n";
 
 try {

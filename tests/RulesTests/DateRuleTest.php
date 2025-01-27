@@ -9,9 +9,11 @@ class DateRuleTest extends BaseTestCase
     public function testInvalidDate(): void
     {
         $this->expectException(CustomValidationExeption::class);
-        $this->expectExceptionMessage('Date components in CNP are invalid.');
+        $this->expectExceptionMessage(
+            "DateValidator failed: Invalid date components in CNP '5999999999999'."
+        );
 
         $rule = new DateValidator($this->mockLogger);
-        $rule->validate('5999999999999');
+        $rule->validate('5999999999999'); // Example with invalid date
     }
 }

@@ -9,7 +9,9 @@ class ControlDigitRuleTest extends BaseTestCase
     public function testInvalidControlDigit(): void
     {
         $this->expectException(CustomValidationExeption::class);
-        $this->expectExceptionMessage('Control digit in CNP is invalid.');
+        $this->expectExceptionMessage(
+            "ControlDigitValidator failed: Control digit mismatch. Expected '2', got '3' in CNP '1970618394433'."
+        );
 
         $rule = new ControlDigitValidator($this->mockLogger);
         $rule->validate('1970618394433');
